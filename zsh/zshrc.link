@@ -77,6 +77,19 @@ DEFAULT_USER=$(whoami)
 # zsh & custom configuration
 ##########
 
+# zsh-autosuggestions
+# https://github.com/zsh-users/zsh-autosuggestions
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=120
+export ZSH_AUTOSUGGEST_HISTORY_IGNORE='(cd|z|rm) *'
+
+# zoxide ("z" command)
+# https://github.com/ajeetdsouza/zoxide
+export _ZO_ECHO=1
+eval "$(zoxide init zsh)"
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Keep this as the _last_ item in this file for consistency across machines
 # As an escape hatch, additional configuration goes in an untracked file
 if [ -f ~/.untracked-local-config ]; then
