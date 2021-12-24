@@ -8,11 +8,17 @@ source system_checks.sh
 
 echo "👋 configuring $(hostname) using ${BASH_SOURCE[0]}"
 
+# git submodules are used for some dependencies - like zsh plugins
+echo '📦 downloading up to date submodules'
+git submodule init
+git submodule update
+
 if on_macos; then
   # Keep system from sleeping until script exits (ignored unless plugged in)
   caffeinate -s -w $$ &
 
   if ! command_available brew; then
+    echo
     echo '🍺 installing Homebrew...'
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
@@ -23,12 +29,18 @@ if on_macos; then
     brew bundle install
   fi
 
-  echo
-  echo "🔗 linking dotfiles..."
   # shellcheck disable=SC2231
   for dot_link in $SCRIPT_DIR/**/*.link; do
     target=$HOME"/."$(basename "$dot_link" | sed 's/.link//')
     if [ ! -L "$target" ]; then
+      set +u
+      if [ -z "$PRINTED_LINK_MESSAGE" ]; then
+        echo
+        echo "🔗 linking dotfiles..."
+        PRINTED_LINK_MESSAGE=1
+      fi
+      set -u
+
       echo -e "\t• $target → $dot_link"
       ln -s "$dot_link" "$target"
     fi
@@ -47,4 +59,4 @@ if on_macos; then
 fi
 
 echo
-echo "✅ done"
+echo "✅ done. Open a new shell, or run: source ~/.zshrc"
