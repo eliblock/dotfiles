@@ -1,2 +1,7 @@
 ## Sourced by _both_ ~/.zshrc and ~/.bash_profile
 ## Store cross-shell aliases + helpers here
+
+# uuidgen, but for version-4 (lowercase) uuids
+alias uuidgen4='python3 -c "import uuid; print(uuid.uuid4())"'
+
+alias hello='echo "hi! 👋"'
