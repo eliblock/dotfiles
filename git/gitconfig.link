@@ -1,0 +1,36 @@
+# https://git-scm.com/docs/git-config#_configuration_file
+
+[user]
+	email = 3347571+eliblock@users.noreply.github.com
+	name = Eli Block
+
+[core]
+  editor = code --wait
+
+[push]
+	default = simple
+
+[rebase]
+  abbreviateCommands = true
+
+[init]
+	defaultBranch = main
+
+[pager]
+	diff = delta
+	log = delta
+	reflog = delta
+	show = delta
+
+[delta]
+	# line-numbers = true
+
+# Add the following configuration to a repo's .git/config in order to instruct
+# git to fetch only the main branch and branches prefixed with "eb/".
+# On projects with many contributors pushing branches to one remote, this keeps
+# the local repo small.
+# With this config, to check out a branch that doesn't match the filter, run:
+# git fetch origin other-branch-name:other-branch-name && git checkout other-branch-name
+# [remote "origin"]
+#   fetch = +refs/heads/main:refs/remotes/origin/main
+#   fetch = +refs/heads/eb/*:refs/remotes/origin/eb/*

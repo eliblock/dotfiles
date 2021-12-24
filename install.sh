@@ -24,6 +24,18 @@ if on_macos; then
   fi
 
   echo
+  echo "🔗 linking dotfiles..."
+  # shellcheck disable=SC2231
+  for dot_link in $SCRIPT_DIR/**/*.link; do
+    target=$HOME"/."$(basename "$dot_link" | sed 's/.link//')
+    if [ ! -L "$target" ]; then
+      echo -e "\t• $target → $dot_link"
+      ln -s "$dot_link" "$target"
+    fi
+  done
+
+
+  echo
   echo "🧙 running installers..."
   # shellcheck disable=SC2231
   for installer in $SCRIPT_DIR/**/install.darwin.sh; do
