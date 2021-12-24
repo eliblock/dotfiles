@@ -1,0 +1,3 @@
+## Some tooling auto-adds itself to ~/.profile
+## Track this file, but don't use it! If something has been added here, figure
+## out where it should go instead (maybe shared-interactive-profile.link?)
