@@ -25,9 +25,13 @@ if on_macos; then
 
   echo
   echo "🧙 running installers..."
+  # shellcheck disable=SC2231
   for installer in $SCRIPT_DIR/**/install.darwin.sh; do
     bash "$installer"
   done
+
+  # set up pre-commit for this repo
+  pre-commit install --install-hooks 1> /dev/null
 fi
 
 echo
