@@ -1,0 +1,11 @@
+PS1="\u$ "
+
+if [ -L ~/.shared-interactive-profile ]; then
+  source ~/.shared-interactive-profile
+fi
+
+# Keep this as the _last_ item in this file for consistency across machines
+# As an escape hatch, additional configuration goes in an untracked file
+if [ -f ~/.untracked-local-bash-profile ]; then
+  source ~/.untracked-local-bash-profile
+fi

@@ -90,8 +90,12 @@ eval "$(zoxide init zsh)"
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+if [ -L ~/.shared-interactive-profile ]; then
+  source ~/.shared-interactive-profile
+fi
+
 # Keep this as the _last_ item in this file for consistency across machines
 # As an escape hatch, additional configuration goes in an untracked file
-if [ -f ~/.untracked-local-config ]; then
-  source ~/.untracked-local-config
+if [ -f ~/.untracked-local-zshrc ]; then
+  source ~/.untracked-local-zshrc
 fi

@@ -31,18 +31,24 @@ if on_macos; then
 
   # shellcheck disable=SC2231
   for dot_link in $SCRIPT_DIR/**/*.link; do
-    target=$HOME"/."$(basename "$dot_link" | sed 's/.link//')
-    if [ ! -L "$target" ]; then
-      set +u
-      if [ -z "$PRINTED_LINK_MESSAGE" ]; then
-        echo
-        echo "🔗 linking dotfiles..."
-        PRINTED_LINK_MESSAGE=1
-      fi
-      set -u
+    # if the dot_link is not itself a symbolic link
+    if [ ! -L "$dot_link" ]; then
 
-      echo -e "\t• $target → $dot_link"
-      ln -s "$dot_link" "$target"
+      target=$HOME"/."$(basename "$dot_link" | sed 's/.link//')
+
+      # if the target is not already a symbolic link
+      if [ ! -L "$target" ]; then
+        set +u
+        if [ -z "$PRINTED_LINK_MESSAGE" ]; then
+          echo
+          echo "🔗 linking dotfiles..."
+          PRINTED_LINK_MESSAGE=1
+        fi
+        set -u
+
+        echo -e "\t• $target → $dot_link"
+        ln -s "$dot_link" "$target"
+      fi
     fi
   done
 
