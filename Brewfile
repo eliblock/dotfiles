@@ -44,6 +44,7 @@ brew 'zoxide' # smart cd. Use 'z' instead of 'cd'
 brew 'awscli'
 brew 'shellcheck'
 
+cask 'iterm2'
 cask 'meetingbar'
 cask 'monitorcontrol'
 cask 'spotify'

@@ -22,6 +22,13 @@ if on_macos; then
     echo '🍺 brew bundle outdated, installing the new brew bundle'
     brew bundle install
   fi
+
+  echo
+  echo "🧙 running installers..."
+  for installer in $SCRIPT_DIR/**/install.darwin.sh; do
+    bash "$installer"
+  done
 fi
 
+echo
 echo "✅ done"
