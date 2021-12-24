@@ -1,5 +1,8 @@
 PS1="\u$ "
 
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 if [ -L ~/.shared-interactive-profile ]; then
   source ~/.shared-interactive-profile
 fi
