@@ -22,8 +22,8 @@
 	reflog = delta
 	show = delta
 
-[delta]
-	# line-numbers = true
+# [delta]
+# 	line-numbers = true
 
 # Add the following configuration to a repo's .git/config in order to instruct
 # git to fetch only the main branch and branches prefixed with "eb/".
@@ -34,6 +34,11 @@
 # [remote "origin"]
 #   fetch = +refs/heads/main:refs/remotes/origin/main
 #   fetch = +refs/heads/eb/*:refs/remotes/origin/eb/*
+
+## Place any git configuration which you do _not_ want tracked in shared dotfiles
+## in ~/.untracked-local-gitconfig.
+[include]
+  path = ~/.untracked-local-gitconfig
 
 [alias]
   br-find = "!git branch | cut -c 3- | awk '{print $1}' | fzf +m --preview 'git show --color=always {}' --preview-window=up,85%,~3"
