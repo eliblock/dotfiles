@@ -50,7 +50,7 @@ if on_macos; then
     # if the dot_link is not itself a symbolic link
     if [ ! -L "$dot_link" ]; then
 
-      target=$HOME"/."$(basename "$dot_link" | sed 's/.link//')
+      target=$HOME"/."$(basename "$dot_link" | sed 's/.link//' | sed 's/~~/\//g')
 
       # if the target is not already a symbolic link
       if [ ! -L "$target" ]; then
@@ -63,6 +63,7 @@ if on_macos; then
         set -u
 
         echo -e "\t• $target → $dot_link"
+        mkdir -p "$(basename "$target")"
         ln -s "$dot_link" "$target"
       fi
     fi
