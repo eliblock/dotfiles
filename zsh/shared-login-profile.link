@@ -26,6 +26,16 @@ if [ -f "$HOMEBREW_PREFIX/share/chruby/chruby.sh" ]; then
   source "$HOMEBREW_PREFIX/share/chruby/chruby.sh"
   # Enable ruby auto-switching
   source "$HOMEBREW_PREFIX/share/chruby/auto.sh"
+
+  # chruby loads available rubies once (when it is loaded). This helper reloads
+  # rubies for the current shell
+  chruby_reload () {
+    RUBIES=()
+    for dir in "$PREFIX/opt/rubies" "$HOME/.rubies"; do
+      [[ -d "$dir" && -n "$(ls -A "$dir")" ]] && RUBIES+=("$dir"/*)
+    done
+    unset dir
+  }
 else
   echo '❌ chruby not found'
 fi
