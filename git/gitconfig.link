@@ -34,3 +34,8 @@
 # [remote "origin"]
 #   fetch = +refs/heads/main:refs/remotes/origin/main
 #   fetch = +refs/heads/eb/*:refs/remotes/origin/eb/*
+
+[alias]
+  br-find = "!git branch | cut -c 3- | awk '{print $1}' | fzf +m --preview 'git show --color=always {}' --preview-window=up,85%,~3"
+  br = "!git checkout $(git br-find)"
+  resign = "!GIT_EDITOR=vim git rebase --exec 'git commit --amend --no-edit -n -S' -i $(gh default-branch)"
