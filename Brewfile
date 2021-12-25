@@ -42,6 +42,8 @@ brew 'yq' # yaml processing: echo 'hi: world' | yq eval '.hi' -
 brew 'zoxide' # smart cd. Use 'z' instead of 'cd'
 
 # languages
+brew 'pyenv'
+
 brew 'chruby'
 brew 'ruby-install'
 

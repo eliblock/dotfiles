@@ -19,6 +19,14 @@ if test -n "${brew}"; then
 fi
 
 ##########
+# python
+##########
+if which pyenv 1> /dev/null 2> /dev/null; then
+  # Load pyenv path shims
+  eval "$(pyenv init --path)"
+fi
+
+##########
 # ruby
 ##########
 if [ -f "$HOMEBREW_PREFIX/share/chruby/chruby.sh" ]; then
