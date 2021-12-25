@@ -3,7 +3,7 @@
 ## (to load a new login shell: zsh --login)
 
 ##########
-# Brew
+# brew
 ##########
 # Brew is installed in different places on apple silicon vs. intel. The /opt/**
 # directory is not automatically added to the path, so we need to find brew
@@ -16,4 +16,16 @@ fi
 # Add brew to path and set useful brew-related environment variables
 if test -n "${brew}"; then
   eval "$($brew shellenv)"
+fi
+
+##########
+# ruby
+##########
+if [ -f "$HOMEBREW_PREFIX/share/chruby/chruby.sh" ]; then
+  # Load chruby
+  source "$HOMEBREW_PREFIX/share/chruby/chruby.sh"
+  # Enable ruby auto-switching
+  source "$HOMEBREW_PREFIX/share/chruby/auto.sh"
+else
+  echo '❌ chruby not found'
 fi
