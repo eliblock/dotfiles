@@ -1,0 +1,6 @@
+## Loaded when a login shell is opened
+## To load a new login shell: zsh --login
+
+if [ -L ~/.shared-login-profile ]; then
+  source ~/.shared-login-profile
+fi

@@ -21,6 +21,22 @@ if on_macos; then
     echo
     echo '🍺 installing Homebrew...'
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    # Next, set up the new brew installation to be usable by the remainder of
+    # this script. A similar configuration is set in the ~/.shared-login-profile
+    #
+    # Brew is installed in different places on apple silicon vs. intel. The
+    # /opt/** directory is not automatically added to the path, so we need to
+    # find brew before we can use it.
+    if [ -x /opt/homebrew/bin/brew ]; then # apple silicon
+      brew=/opt/homebrew/bin/brew
+    elif [ -x /usr/local/bin/brew ]; then # intel
+      brew=/usr/local/bin/brew
+    fi
+    # Add brew to path and set useful brew-related environment variables
+    if test -n "${brew}"; then
+      eval "$($brew shellenv)"
+    fi
   fi
 
   echo '🍺 checking brew bundle...'
@@ -65,4 +81,4 @@ if on_macos; then
 fi
 
 echo
-echo "✅ done. Open a new shell, or run: source ~/.zshrc"
+echo "✅ done. Open a new shell (or, if login items have not changed, run: source ~/.zshrc)"
