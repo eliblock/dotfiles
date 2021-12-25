@@ -43,4 +43,5 @@
 [alias]
   br-find = "!git branch | cut -c 3- | awk '{print $1}' | fzf +m --preview 'git show --color=always {}' --preview-window=up,85%,~3"
   br = "!git checkout $(git br-find)"
+  pr-message = "!git log --reverse --pretty=format:\"## %s%n%n%b\" $(gh default-branch)..HEAD"
   resign = "!GIT_EDITOR=vim git rebase --exec 'git commit --amend --no-edit -n -S' -i $(gh default-branch)"
