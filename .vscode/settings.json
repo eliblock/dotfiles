@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    // Per-file overrides
+    "gitignore.link": "ignore",
+    "gemrc.link": "yaml",
+    // Defaults
+    "git*.link": "properties", // most git-related .link files are properties
+    "*.link": "shellscript"    // most .link files are shell scripts
+  }
+}
