@@ -6,6 +6,7 @@
 
 [core]
   editor = code --wait
+  pager = delta
 
 [push]
 	default = simple
@@ -16,14 +17,18 @@
 [init]
 	defaultBranch = main
 
-[pager]
-	diff = delta
-	log = delta
-	reflog = delta
-	show = delta
+[delta]
+	features = decorations
 
-# [delta]
-# 	line-numbers = true
+[delta "decorations"]
+  commit-decoration-style = blue ol
+  commit-style = raw
+
+  file-decoration-style = blue ol
+
+  hunk-header-decoration-style = grey box
+  hunk-header-line-number-style = grey
+  hunk-header-style = line-number syntax
 
 # Add the following configuration to a repo's .git/config in order to instruct
 # git to fetch only the main branch and branches prefixed with "eb/".
