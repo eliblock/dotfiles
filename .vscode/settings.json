@@ -5,7 +5,8 @@
     "gemrc.link": "yaml",
     // Defaults
     "git*.link": "properties", // most git-related .link files are properties
-    "*.yml.link": "yaml",      // .yml.link files are yaml
-    "*.link": "shellscript"    // most .link files are shell scripts
+    "*.conf.link": "properties", // .conf.link files are properties
+    "*.yml.link": "yaml", // .yml.link files are yaml
+    "*.link": "shellscript" // most .link files are shell scripts
   }
 }

@@ -1,0 +1,59 @@
+## Unless another option file is specified (with the --options flag), GnuPG uses
+## this file (~/.gnupg/gpg.conf).
+##
+## Configuration heavily based on:
+## https://github.com/drduh/config/blob/master/gpg.conf
+## Other resources:
+## https://www.gnupg.org/documentation/manuals/gnupg/Option-Index.html
+## https://www.gnupg.org/documentation/manuals/gnupg/GPG-Configuration-Options.html
+## https://www.gnupg.org/documentation/manuals/gnupg/GPG-Esoteric-Options.html
+
+##########
+# style & formattiong
+##########
+# no greeting / copyright notice
+no-greeting
+# force cli to use UTF-8 regardless of system settings
+charset utf-8
+# use key ids with long (16-character) hexidecimal-style (prefixed with 0x)
+keyid-format 0xlong
+# show computed validity level for user ids (e.g., 'ultimate' for own keys)
+list-options show-uid-validity
+verify-options show-uid-validity
+
+# # verbose output
+# verbose
+# # display expired subkeys
+# list-options show-unusable-subkeys
+
+##########
+# signatures & encryption
+##########
+# no comment strings in signatures and armored output
+no-comments
+# no version strings in signatures and armored output
+no-emit-version
+# no recipient key ids in encrypted messages (hidden-recipients for all)
+throw-keyids
+# when checking signatures made by a subkey, always check that the
+# cross-certification signature is present and valid
+require-cross-certification
+
+##########
+# cryptographic settings
+##########
+# use SHA512, 384, or 256 as digest
+personal-digest-preferences SHA512 SHA384 SHA256
+# use AES256, 192, or 128 as cipher
+personal-cipher-preferences AES256 AES192 AES
+# use ZLIB, BZIP2, ZIP, or no compression
+personal-compress-preferences ZLIB BZIP2 ZIP Uncompressed
+# default preferences for new keys (should match the above personal preferences)
+default-preference-list SHA512 SHA384 SHA256 AES256 AES192 AES ZLIB BZIP2 ZIP Uncompressed
+
+# use SHA512 as digest to sign keys
+cert-digest-algo SHA512
+# use SHA512 as digest for symmetric ops
+s2k-digest-algo SHA512
+# use AES256 as cipher for symmetric ops
+s2k-cipher-algo AES256
