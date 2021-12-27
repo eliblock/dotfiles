@@ -1,0 +1,25 @@
+## Unless another option file is specified (with the --options flag), GnuPG
+## Agent uses this file (~/.gnupg/gpg-agent.conf).
+##
+## Configuration heavily based on:
+## https://github.com/drduh/config/blob/master/gpg-agent.conf
+
+# configure gpg-agent to behave like a drop-in replacement for ssh-agent
+# (the agent must be started, loaded with keys, etc. for this to take effect)
+enable-ssh-support
+
+# program used for pin entry (installed via brew)
+# gpg-agent expects pinentry to be in different places on various OSs, and
+# furthermore we want to use pinentry-mac which brew installs to different
+# places depending on the machine's cpu
+#
+# we set up a symlink at pinentry-dotfile-custom which points to the proper
+# local pinentry-mac installation. Use that symlink!
+pinentry-program /usr/local/bin/pinentry-dotfile-custom
+
+# how long (in seconds) a password is cached before it must be re-entered. The
+# timer is reset to this value each time the cached password is used
+default-cache-ttl 600
+# maximum time (in seconds) a password may be cached, even if its cache ttl
+## timer has been reset
+max-cache-ttl 7200
