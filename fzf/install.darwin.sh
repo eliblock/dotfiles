@@ -8,6 +8,6 @@ cd "$SCRIPT_DIR"
 echo '• installing fzf shell completion...'
 "$(brew --prefix)/opt/fzf/install" \
     --no-update-rc \
-    --completion --no-key-bindings \
+    --completion --key-bindings \
     --no-fish \
     1> /dev/null
