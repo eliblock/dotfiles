@@ -53,6 +53,7 @@ if on_macos; then
       target=$HOME"/."$(basename "$dot_link" | sed 's/.link//' | sed 's/~~/\//g')
 
       # if the target is not already a symbolic link
+      # bash test options: https://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
       if [ ! -L "$target" ]; then
         set +u
         if [ -z "$PRINTED_LINK_MESSAGE" ]; then
@@ -61,6 +62,20 @@ if on_macos; then
           PRINTED_LINK_MESSAGE=1
         fi
         set -u
+
+        # move the file if it already exists (and is a regular file)
+        if [ -f "$target" ]; then
+          moved_to_name="$target.original.$(date +"%Y-%m-%d_%H-%M-%S%Z")"
+          echo -e "\t⚠️  renaming $target to $moved_to_name"
+          cat << MOVED_NOTE | cat - "$target" > "$moved_to_name"
+## ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~ THIS FILE WAS MOVED ~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~
+## Original name: $target
+## Moved on: $(date +"%Y-%m-%d at %H:%M:%S%Z")
+## Moved by: $(realpath "$0")
+## ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~ THIS FILE WAS MOVED ~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~
+MOVED_NOTE
+          rm "$target"
+        fi
 
         echo -e "\t• $target → $dot_link"
         mkdir -p "$(basename "$target")"
