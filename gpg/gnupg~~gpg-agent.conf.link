@@ -4,10 +4,6 @@
 ## Configuration heavily based on:
 ## https://github.com/drduh/config/blob/master/gpg-agent.conf
 
-# configure gpg-agent to behave like a drop-in replacement for ssh-agent
-# (the agent must be started, loaded with keys, etc. for this to take effect)
-enable-ssh-support
-
 # program used for pin entry (installed via brew)
 # gpg-agent expects pinentry to be in different places on various OSs, and
 # furthermore we want to use pinentry-mac which brew installs to different

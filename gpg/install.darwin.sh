@@ -31,34 +31,3 @@ if command_available pinentry-mac; then
     ln -s "$(which pinentry-mac)" "$pinentry_symlink"
   fi
 fi
-
-# Making a non-GitHub/gpg related change to ~/.ssh/config? Move ssh config
-# management out of this file!
-# For now, this should work...
-if [ -f "$HOME/.ssh/id_rsa_yubikey.pub" ]; then
-  echo '• configuring ssh to use yubikey for github...'
-  NEW_SSH_CONFIG=$(cat << SSH_CONFIG
-## This file is managed by ~/.dotfiles
-## Changes _will_ be overwritten
-Host github.com
-    IdentitiesOnly yes
-    IdentityFile ~/.ssh/id_rsa_yubikey.pub
-SSH_CONFIG
-  )
-  safe_overwrite "$HOME/.ssh/config" "$NEW_SSH_CONFIG" "$(realpath "$0")"
-elif [ -f "$HOME/.ssh/id_ed25519_github" ]; then
-  echo '• configuring ssh to use local id_ed25519_github key for github...'
-  NEW_SSH_CONFIG=$(cat << SSH_CONFIG
-## This file is managed by ~/.dotfiles
-## Changes _will_ be overwritten
-Host github.com
-    IdentitiesOnly yes
-    AddKeysToAgent yes
-    UseKeychain yes
-    IdentityFile ~/.ssh/id_ed25519_github
-SSH_CONFIG
-  )
-  safe_overwrite "$HOME/.ssh/config" "$NEW_SSH_CONFIG" "$(realpath "$0")"
-else
-  echo '⚠️  no valid identity for github detected. ~/.ssh/config not configured'
-fi

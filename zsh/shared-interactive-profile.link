@@ -6,19 +6,10 @@ alias uuidgen4='python3 -c "import uuid; print(uuid.uuid4())"'
 
 alias hello='echo "hi! 👋"'
 
-##########
-# gpg & ssh
-##########
-export GPG_TTY=$(tty) # from gpg-agent manpage
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) # from https://github.com/drduh/YubiKey-Guide#replace-agents
-
-# terminate then restart the agent
-# terminating the agent _should not_ be needed, but without the following line
-# the agent does not find pinentry-mac
-gpgconf --kill gpg-agent
-# gpg-related commands automatically start the agent, but ssh-related commands
-# do not. Since we use gpg-agent instead of ssh-agent, prestart gpg-agent
-gpg-connect-agent updatestartuptty /bye 1> /dev/null
+# ##########
+# # ssh
+# ##########
+eval $(ssh-agent)
 
 ##########
 # python

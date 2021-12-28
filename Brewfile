@@ -25,6 +25,7 @@ brew 'gping' # ping with a graph: gping google.com
 brew 'httpie' # friendly curl: http HEAD google.com
 cask 'ngrok'
 brew 'nmap'
+brew 'openssh'
 cask 'postman'
 brew 'telnet'
 

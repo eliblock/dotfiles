@@ -1,0 +1,12 @@
+## As an escape hatch, additional ssh configuration goes in an untracked file
+Include ~/.ssh/untracked-local-config
+
+Host *
+  IgnoreUnknown UseKeychain
+  UseKeychain yes
+
+Host github.com
+    HostName github.com
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/id_ed25519_github
+    IdentityFile ~/.ssh/id_ed25519_sk_github
