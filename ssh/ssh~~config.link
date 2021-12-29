@@ -9,4 +9,3 @@ Host github.com
     HostName github.com
     IdentitiesOnly yes
     IdentityFile ~/.ssh/id_ed25519_github
-    IdentityFile ~/.ssh/id_ed25519_sk_github
