@@ -78,7 +78,7 @@ MOVED_NOTE
         fi
 
         echo -e "\t• $target → $dot_link"
-        mkdir -p "$(basename "$target")"
+        mkdir -p "$(dirname "$target")"
         ln -s "$dot_link" "$target"
       fi
     fi
