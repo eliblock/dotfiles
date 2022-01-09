@@ -55,6 +55,7 @@ brew 'shellcheck'
 cask 'iterm2'
 cask 'meetingbar'
 cask 'monitorcontrol'
+cask 'rectangle'
 cask 'spotify'
 cask 'visual-studio-code'
 
