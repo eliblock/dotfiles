@@ -19,17 +19,39 @@ source ../system_checks.sh
 
 # gpg-agent expects pinentry to be in different places on various OSs, and
 # furthermore we want to use pinentry-mac which brew installs to different
-# places depending on the machine's cpu
+# places depending on the machine's cpu. To make matters worse, symlinks are
+# not followed within the gpg-agent.conf file
 #
-# set up a symlink for pinentry-dotfile-custom which points to the proper local
-# pinentry-mac installation. This path is set in ~/.gpg-agent.conf as the place
-# to check for pinentry-program
+# Overwrite ~/.gnupg/gpg-agent.conf with the proper configuration for this
+# platform
 if command_available pinentry-mac; then
-  pinentry_symlink=/usr/local/bin/pinentry-dotfile-custom
-  if [ ! -L "$pinentry_symlink" ]; then
-    echo "• linking $pinentry_symlink → $(which pinentry-mac)..."
-    ln -s "$(which pinentry-mac)" "$pinentry_symlink"
-  fi
+
+  gpg_agent_file=$(cat << GPG_AGENT
+## This file is managed by $(realpath "$0")
+## All updates will be overwritten
+
+## Unless another option file is specified (with the --options flag), GnuPG
+## Agent uses this file (~/.gnupg/gpg-agent.conf).
+##
+## Configuration heavily based on:
+## https://github.com/drduh/config/blob/master/gpg-agent.conf
+
+# program used for pin entry (installed via brew)
+# gpg-agent expects pinentry to be in different places on various OSs, and
+# furthermore we want to use pinentry-mac which brew installs to different
+# places depending on the machine's cpu
+pinentry-program $(which pinentry-mac)
+
+# how long (in seconds) a password is cached before it must be re-entered. The
+# timer is reset to this value each time the cached password is used
+default-cache-ttl 600
+# maximum time (in seconds) a password may be cached, even if its cache ttl
+## timer has been reset
+max-cache-ttl 7200
+GPG_AGENT
+  )
+
+  safe_overwrite "$HOME/.gnupg/gpg-agent.conf" "$gpg_agent_file" "$(realpath "$0")"
 fi
 
 # If ~/.gnupg was created during file linking, it may have improper permissions
