@@ -31,3 +31,10 @@ if command_available pinentry-mac; then
     ln -s "$(which pinentry-mac)" "$pinentry_symlink"
   fi
 fi
+
+# If ~/.gnupg was created during file linking, it may have improper permissions
+# Make sure that the .gnupg directory and its contents is accessibile by you
+chown -R "$(whoami)" ~/.gnupg/
+
+# Limit access on the directory and assign access on all existing files
+chmod 700 ~/.gnupg
