@@ -22,3 +22,16 @@ if which pyenv 1> /dev/null 2> /dev/null; then
   # Load pyenv-virtualenv
   eval "$(pyenv virtualenv-init -)"
 fi
+
+##########
+# nvm
+##########
+# Load nvm for this session (also done in shared-interactive-profile)
+if [ -x /opt/homebrew/bin/brew ]; then # apple silicon
+  NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
+elif [ -x /usr/local/bin/brew ]; then # intel
+  NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh" --no-use
+fi
+export NVM_DIR

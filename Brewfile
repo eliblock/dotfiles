@@ -50,6 +50,8 @@ brew 'pipx' # venvs for python tools
 brew 'chruby'
 brew 'ruby-install'
 
+brew 'nvm'
+
 # other
 brew 'awscli'
 brew 'shellcheck'
