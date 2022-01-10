@@ -44,6 +44,8 @@ brew 'zoxide' # smart cd. Use 'z' instead of 'cd'
 
 # languages
 brew 'pyenv'
+brew 'pyenv-virtualenv'
+brew 'pipx' # venvs for python tools
 
 brew 'chruby'
 brew 'ruby-install'

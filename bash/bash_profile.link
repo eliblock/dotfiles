@@ -3,6 +3,9 @@ PS1="\u$ "
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# pipx autocompletions
+eval "$(register-python-argcomplete pipx)"
+
 if [ -L ~/.shared-login-profile ]; then
   source ~/.shared-login-profile
 fi

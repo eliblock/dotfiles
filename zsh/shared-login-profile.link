@@ -26,6 +26,11 @@ if which pyenv 1> /dev/null 2> /dev/null; then
   eval "$(pyenv init --path)"
 fi
 
+if which pipx 1> /dev/null 2> /dev/null; then
+  # Add pipx's install directory to the PATH
+  export PATH="$PATH:$HOME/.local/bin"
+fi
+
 ##########
 # ruby
 ##########

@@ -18,4 +18,7 @@ if which pyenv 1> /dev/null 2> /dev/null; then
   # Load pyenv autocompletion, rehash pyenv shims, and install pyenv as shell
   # function (rather than as a script)
   eval "$(pyenv init -)"
+
+  # Load pyenv-virtualenv
+  eval "$(pyenv virtualenv-init -)"
 fi
