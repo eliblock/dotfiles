@@ -36,6 +36,12 @@ killall Finder
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
+# Sometimes macs have this enabled (set to Yes), which prevents the majority of
+# the UI from entering dark mode when activated in System Preferences. Disable
+# it so the settings work! Requires log out / log in.
+# https://osxdaily.com/2018/10/15/dark-menu-dock-light-theme-macos/
+defaults write -g NSRequiresAquaSystemAppearance -bool No
+
 ##########
 # Dock, menu bar, hot corners
 ##########
