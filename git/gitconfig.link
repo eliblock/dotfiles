@@ -50,3 +50,19 @@
   br = "!git checkout $(git br-find)"
   pr-message = "!git log --reverse --pretty=format:\"## %s%n%n%b\" $(gh default-branch)..HEAD"
   resign = "!GIT_EDITOR=vim git rebase --exec 'git commit --amend --no-edit -n -S' -i $(gh default-branch)"
+  delete-squashed = "!f() { \
+    set -e; \
+    local targetBranch=${1:-$(gh default-branch)}; \
+    git checkout -q $targetBranch; \
+    echo \"Removing branches which have been squash merged into $targetBranch...\"; \
+    git branch --merged \
+      | grep -v \"\\*\" \
+      | xargs -n 1 git branch -d; \
+    git for-each-ref refs/heads/ \"--format=%(refname:short)\" \
+      | while read branch; do \
+        mergeBase=$(git merge-base $targetBranch $branch); \
+        [[ $(git cherry $targetBranch $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == \"-\"* ]] \
+          && git branch -D $branch; \
+      done; \
+    }; \
+    f"
