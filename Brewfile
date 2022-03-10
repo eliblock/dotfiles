@@ -54,6 +54,7 @@ brew 'nvm'
 
 # other
 brew 'awscli'
+brew 'cmake'
 brew 'shellcheck'
 
 cask 'iterm2'
