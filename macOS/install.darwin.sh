@@ -65,6 +65,10 @@ killall SystemUIServer
 defaults write us.zoom.xos 'NSStatusItem Visible Item-0' 0
 killall zoom.us
 
+# Do not show 1Password 7 in the menu bar
+defaults write com.agilebits.onepassword7 'NSStatusItem Visible Item-0' 0
+killall '1Password 7'
+
 # Hot corners
 # Possible values:
 #  0: no-op
