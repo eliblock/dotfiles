@@ -60,6 +60,10 @@ defaults write com.apple.menuextra.clock "FlashDateSeparators" -bool "true"
 # Kill to apply settings
 killall SystemUIServer
 
+# Show 24-hour clock in format "Mon Jan 1 13:01"
+# https://www.tech-otaku.com/mac/setting-the-date-and-time-format-for-the-macos-menu-bar-clock-using-terminal
+defaults write com.apple.menuextra.clock DateFormat 'EEE MMM d HH:mm'
+
 # Do not show spotlight in the menu bar
 defaults write com.apple.Spotlight MenuItemHidden -int 1
 
