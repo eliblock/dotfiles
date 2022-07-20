@@ -60,6 +60,9 @@ defaults write com.apple.menuextra.clock "FlashDateSeparators" -bool "true"
 # Kill to apply settings
 killall SystemUIServer
 
+# Do not show spotlight in the menu bar
+defaults write com.apple.Spotlight MenuItemHidden -int 1
+
 # Find relevant configs with: defaults find 'NSStatusItem'
 # Do not show Zoom in the menu bar
 defaults write us.zoom.xos 'NSStatusItem Visible Item-0' 0
