@@ -60,6 +60,11 @@ defaults write com.apple.menuextra.clock "FlashDateSeparators" -bool "true"
 # Kill to apply settings
 killall SystemUIServer
 
+# Find relevant configs with: defaults find 'NSStatusItem'
+# Do not show Zoom in the menu bar
+defaults write us.zoom.xos 'NSStatusItem Visible Item-0' 0
+killall zoom.us
+
 # Hot corners
 # Possible values:
 #  0: no-op
