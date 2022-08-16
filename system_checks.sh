@@ -10,6 +10,12 @@ command_available() {
   which "$1" > /dev/null
 }
 
+app_installed() {
+  if [ "$(mdfind -count -name "$1")" == 0 ]; then
+    return 1
+  fi
+}
+
 safe_overwrite() {
   # usage: safe_overwrite filename new_file_contents_as_string blame_string
 

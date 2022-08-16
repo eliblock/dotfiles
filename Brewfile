@@ -65,3 +65,5 @@ cask 'spotify'
 cask 'visual-studio-code'
 
 cask 'font-meslo-for-powerline'
+
+brew 'duti' # cli to set default apps for documents
