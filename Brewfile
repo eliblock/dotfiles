@@ -52,6 +52,8 @@ brew 'ruby-install'
 
 brew 'nvm'
 
+brew 'go'
+
 # other
 brew 'awscli'
 brew 'cmake'
