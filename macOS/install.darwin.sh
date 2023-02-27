@@ -70,11 +70,11 @@ defaults write com.apple.Spotlight MenuItemHidden -int 1
 # Find relevant configs with: defaults find 'NSStatusItem'
 # Do not show Zoom in the menu bar
 defaults write us.zoom.xos 'NSStatusItem Visible Item-0' 0
-killall zoom.us
+killall zoom.us || true
 
 # Do not show 1Password 7 in the menu bar
 defaults write com.agilebits.onepassword7 'NSStatusItem Visible Item-0' 0
-killall '1Password 7'
+killall '1Password 7' || true
 
 # Hot corners
 # Possible values:
