@@ -101,6 +101,9 @@ defaults write com.apple.dock wvous-tr-modifier -int 0
 # Enable developer tools
 defaults write com.apple.Safari "WebKitPreferences.developerExtrasEnabled" -bool true
 
+# Send DNT
+defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
+
 ##########
 # Other
 ##########
