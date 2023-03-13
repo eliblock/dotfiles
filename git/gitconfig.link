@@ -26,6 +26,10 @@
 
   file-decoration-style = blue ol
 
+  side-by-side = true
+  line-numbers-left-format = "{nm:>} "
+  line-numbers-right-format = "⋮{np:>} "
+
   hunk-header-decoration-style = grey box
   hunk-header-line-number-style = grey
   hunk-header-style = line-number syntax
