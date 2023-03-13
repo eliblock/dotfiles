@@ -65,7 +65,6 @@ cask 'monitorcontrol'
 cask 'rectangle'
 cask 'spotify'
 cask 'visual-studio-code'
-cask 'google-chrome'
 
 cask 'font-meslo-for-powerline'
 

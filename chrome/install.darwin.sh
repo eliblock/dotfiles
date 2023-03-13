@@ -1,6 +1,13 @@
 #!/bin/bash
 set -euo pipefail
 
+## Install Chrome
+# Chrome is sometimes installed early on machines under enterprise management.
+# Check if it is installed, and install via brew if it is not.
+if ! [ -d "/Applications/Google Chrome.app" ]; then
+    brew install 'google-chrome' --cask
+fi
+
 ## Chrome Policies
 # Apply policies as _recommendations_ (not mandatory).
 # Resources + inspiration:
