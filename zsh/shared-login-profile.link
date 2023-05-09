@@ -52,3 +52,8 @@ if [ -f "$HOMEBREW_PREFIX/share/chruby/chruby.sh" ]; then
 else
   echo '❌ chruby not found'
 fi
+
+##########
+# user bin
+##########
+export PATH=${PATH}:~/bin
