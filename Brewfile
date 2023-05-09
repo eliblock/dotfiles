@@ -54,6 +54,8 @@ brew 'nvm'
 
 brew 'go'
 
+brew 'warrensbox/tap/tfswitch'
+
 # other
 brew 'awscli'
 brew 'cmake'
