@@ -26,12 +26,11 @@ fi
 ##########
 # nvm
 ##########
-# Load nvm for this session (also done in shared-interactive-profile)
+NVM_DIR="$HOME/.nvm"
 if [ -x /opt/homebrew/bin/brew ]; then # apple silicon
-  NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 elif [ -x /usr/local/bin/brew ]; then # intel
-  NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
 fi
 export NVM_DIR
