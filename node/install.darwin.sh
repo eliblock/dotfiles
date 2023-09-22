@@ -23,3 +23,6 @@ export NVM_DIR
 echo "• installing node $DEFAULT_NODE..."
 nvm install "$DEFAULT_NODE" 1> /dev/null
 nvm alias default "$DEFAULT_NODE"
+
+echo "• installing yarn..."
+npm install -g yarn
