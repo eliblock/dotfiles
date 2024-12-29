@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -euxo pipefail
 
 # Resources + inspiration:
 # - https://mths.be/macos
@@ -72,10 +72,6 @@ defaults write com.apple.Spotlight MenuItemHidden -int 1
 defaults write us.zoom.xos 'NSStatusItem Visible Item-0' 0
 killall zoom.us || true
 
-# Do not show 1Password 7 in the menu bar
-defaults write com.agilebits.onepassword7 'NSStatusItem Visible Item-0' 0
-killall '1Password 7' || true
-
 # Hot corners
 # Possible values:
 #  0: no-op
@@ -97,12 +93,13 @@ defaults write com.apple.dock wvous-tr-modifier -int 0
 ##########
 # Safari
 ##########
+# On Sonoma and above Safari is sandboxed: the following defaults must be run as
+# a super-user to apply
 
-# Enable developer tools
-defaults write com.apple.Safari "WebKitPreferences.developerExtrasEnabled" -bool true
-
-# Send DNT
-defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
+# # Enable developer tools
+# defaults write com.apple.Safari "WebKitPreferences.developerExtrasEnabled" -bool true
+# # Send DNT
+# defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 
 ##########
 # Other
