@@ -90,11 +90,6 @@ eval "$(zoxide init zsh)"
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# pipx autocompletions
-autoload -U bashcompinit
-bashcompinit
-eval "$(register-python-argcomplete pipx)"
-
 if [ -L ~/.shared-interactive-profile ]; then
   source ~/.shared-interactive-profile
 fi
