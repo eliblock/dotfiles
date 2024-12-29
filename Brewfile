@@ -66,6 +66,8 @@ cask 'meetingbar'
 cask 'monitorcontrol'
 cask 'rectangle'
 cask 'spotify'
+
+cask 'cursor'
 cask 'visual-studio-code'
 
 cask 'font-meslo-for-powerline'

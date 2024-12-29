@@ -5,7 +5,7 @@
 	name = Eli Block
 
 [core]
-  editor = code --wait
+  editor = cursor --wait
   pager = delta
 
 [push]

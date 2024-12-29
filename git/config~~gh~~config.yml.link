@@ -1,13 +1,13 @@
----
 # https://cli.github.com/manual/gh_config and https://cli.github.com/manual/gh_alias
 # What protocol to use when performing git operations
 git_protocol: ssh --host github.com
 # What editor gh should run when creating issues, pull requests, etc.
 # If blank, will refer to environment
-editor: code --wait
+editor: cursor --wait
 # What pager for prompts (e.g., "less")
 # Set to "cat" to disable the pager
 pager:
 # Aliases but for gh commands ('gh help alias set' for more)
 aliases:
     default-branch: '!gh repo view --json "defaultBranchRef" | jq --raw-output ".defaultBranchRef.name"'
+version: "1"

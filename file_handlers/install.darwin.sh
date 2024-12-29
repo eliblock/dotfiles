@@ -8,8 +8,8 @@ cd "$SCRIPT_DIR"
 source ../system_checks.sh
 
 if command_available duti; then
-  if app_installed 'Visual Studio Code'; then
-    package_id=$(osascript -e 'id of app "Visual Studio Code"')
+  if app_installed 'Cursor'; then
+    package_id=$(osascript -e 'id of app "Cursor"')
 
     for extension in py rb txt md; do
       duti -s "$package_id" ".$extension" all
