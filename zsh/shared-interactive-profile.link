@@ -34,8 +34,3 @@ elif [ -x /usr/local/bin/brew ]; then # intel
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
 fi
 export NVM_DIR
-
-##########
-# docker
-##########
-source ~/.docker/init-zsh.sh || true # Added by Docker Desktop
