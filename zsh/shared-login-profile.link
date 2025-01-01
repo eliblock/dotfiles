@@ -21,14 +21,8 @@ fi
 ##########
 # python
 ##########
-if which pyenv 1> /dev/null 2> /dev/null; then
-  # Load pyenv path shims
-  eval "$(pyenv init --path)"
-fi
-
-if which pipx 1> /dev/null 2> /dev/null; then
-  # Add pipx's install directory to the PATH
-  export PATH="$PATH:$HOME/.local/bin"
+if which uv 1> /dev/null 2> /dev/null; then
+  export PATH="$HOME/.local/bin:$PATH"
 fi
 
 ##########

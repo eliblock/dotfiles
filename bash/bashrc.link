@@ -1,0 +1,2 @@
+# uv (python)
+eval "$(uv generate-shell-completion bash)"

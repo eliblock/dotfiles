@@ -4,10 +4,13 @@ set -euo pipefail
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "$SCRIPT_DIR"
 
-DEFAULT_PYTHON=3.11
 
-echo "• installing python $DEFAULT_PYTHON as default python..."
-pyenv install "$DEFAULT_PYTHON" --skip-existing
+echo "• installing various python versions..."
+uv python install 3.10 3.12
 
-# update ~/.pyenv/version, which pyenv uses to determine default version
-pyenv global "$DEFAULT_PYTHON"
+
+uv tool install ipython
+uv tool install ruff
+uv tool install --with tox-uv tox
+
+bash "$SCRIPT_DIR/uv-python-symlink.sh"
