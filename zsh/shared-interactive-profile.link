@@ -39,13 +39,6 @@ function virtual_env_activate() {
 
 
 ##########
-# nvm
+# fnm (node)
 ##########
-NVM_DIR="$HOME/.nvm"
-if [ -x /opt/homebrew/bin/brew ]; then # apple silicon
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-elif [ -x /usr/local/bin/brew ]; then # intel
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
-fi
-export NVM_DIR
+eval "$(fnm env --use-on-cd)"
