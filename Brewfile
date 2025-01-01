@@ -48,7 +48,7 @@ brew 'uv'
 brew 'chruby'
 brew 'ruby-install'
 
-brew 'nvm'
+brew 'fnm'
 
 brew 'go'
 
