@@ -94,6 +94,15 @@ if [ -L ~/.shared-interactive-profile ]; then
   source ~/.shared-interactive-profile
 fi
 
+# uv (python) auto-completion
+eval "$(uv generate-shell-completion zsh)"
+
+# zsh hook which is called when the pwd updates
+function chpwd() {
+  # from ~/.shared-interactive-profile: activates/deactivates a venv if found
+  virtual_env_activate
+}
+
 # Keep this as the _last_ item in this file for consistency across machines
 # As an escape hatch, additional configuration goes in an untracked file
 if [ -f ~/.untracked-local-zshrc ]; then

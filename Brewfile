@@ -43,9 +43,7 @@ brew 'yq' # yaml processing: echo 'hi: world' | yq eval '.hi' -
 brew 'zoxide' # smart cd. Use 'z' instead of 'cd'
 
 # languages
-brew 'pyenv'
-brew 'pyenv-virtualenv'
-brew 'pipx' # venvs for python tools
+brew 'uv'
 
 brew 'chruby'
 brew 'ruby-install'
