@@ -1,7 +1,4 @@
 tap 'homebrew/bundle'
-tap 'homebrew/cask'
-tap 'homebrew/cask-fonts'
-tap 'homebrew/core'
 tap 'homebrew/services'
 
 # git & git adjacent
@@ -52,6 +49,7 @@ brew 'fnm'
 
 brew 'go'
 
+tap 'warrensbox/tap'
 brew 'warrensbox/tap/tfswitch'
 
 # other
