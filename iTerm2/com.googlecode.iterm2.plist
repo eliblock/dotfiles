@@ -9,11 +9,11 @@
 	<key>Default Bookmark Guid</key>
 	<string>7CE29511-83F3-41BB-980C-548EC23A74EB</string>
 	<key>DimBackgroundWindows</key>
-	<false/>
+	<true/>
 	<key>DimInactiveSplitPanes</key>
 	<true/>
 	<key>DimOnlyText</key>
-	<true/>
+	<false/>
 	<key>DisableFullscreenTransparency</key>
 	<false/>
 	<key>EnableAPIServer</key>
@@ -234,7 +234,7 @@
 			<key>Blur</key>
 			<true/>
 			<key>Blur Radius</key>
-			<real>30</real>
+			<real>10</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -318,6 +318,8 @@
 			<integer>0</integer>
 			<key>Idle Code</key>
 			<integer>0</integer>
+			<key>Initial Use Transparency</key>
+			<true/>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -1066,7 +1068,7 @@
 			<key>Title Components</key>
 			<integer>6</integer>
 			<key>Transparency</key>
-			<real>0.025744396538903872</real>
+			<real>0.07</real>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
@@ -1139,7 +1141,7 @@
 	<key>SoundForEsc</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.15069617270979402</real>
+	<real>0.20</real>
 	<key>ThreeFingerEmulates</key>
 	<false/>
 	<key>UseBorder</key>
