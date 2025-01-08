@@ -12,5 +12,13 @@ if ! [ -f "$HOME/.untracked-local-gitconfig" ]; then
 #   signingkey = KEYID
 # [commit]
 #   gpgsign = true
+#
+## To include _another_ gitconfig file optionally for some directory, create the
+## file (e.g., ~/.untracked-work-gitconfig):
+# [user]
+#    email = e@work.com
+## Then optionally include it in this file
+# [includeIf "gitdir:~/code/work/]
+#   path = ~/.untracked-work-gitconfig
 GITCONFIG
 fi
