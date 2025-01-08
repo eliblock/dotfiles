@@ -51,3 +51,10 @@ fi
 # user bin
 ##########
 export PATH=${PATH}:~/bin
+
+
+# Keep this as the _last_ item in this file for consistency across machines
+# As an escape hatch, additional configuration goes in an untracked file
+if [ -f ~/.untracked-local-shared-login-profile ]; then
+  source ~/.untracked-local-shared-login-profile
+fi
